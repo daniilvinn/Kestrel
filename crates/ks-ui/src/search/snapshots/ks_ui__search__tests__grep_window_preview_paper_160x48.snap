@@ -19,14 +19,14 @@ expression: "draw(&s, &theme(name))"
   │                                                                                    │  82     let value_41 = compute(41);                                 │
   │                                                                                    │  83     let value_42 = compute(42);                                 │
   │                                                                                    │  84     let value_43 = compute(43);                                 │
-  │                                                                                    │  85     let value_44 = compute(44);                                 │
-  │                                                                                    │  86     let value_45 = compute(45);                                 │
-  │                                                                                    │  87     let value_46 = compute(46);                                 │
-  │                                                                                    │  88     let value_47 = compute(47);                                 │
-  │                                                                                    │  89     let value_48 = compute(48);                                 │
-  │                                                                                    │  90     let value_49 = compute(49);                                 │
-  │                                                                                    │  91     let value_50 = compute(50);                                 │
-  │                                                                                    │  92     let value_51 = compute(51);                                 │
+  │                                                                                    │  85     let value_44 = compute(44);                                ┃│
+  │                                                                                    │  86     let value_45 = compute(45);                                ┃│
+  │                                                                                    │  87     let value_46 = compute(46);                                ┃│
+  │                                                                                    │  88     let value_47 = compute(47);                                ┃│
+  │                                                                                    │  89     let value_48 = compute(48);                                ┃│
+  │                                                                                    │  90     let value_49 = compute(49);                                ┃│
+  │                                                                                    │  91     let value_50 = compute(50);                                ┃│
+  │                                                                                    │  92     let value_51 = compute(51);                                ┃│
   │                                                                                    │  93     let value_52 = compute(52);                                 │
   │                                                                                    │  94     let value_53 = compute(53);                                 │
   │                                                                                    │  95     let value_54 = compute(54);                                 │
@@ -172,42 +172,50 @@ expression: "draw(&s, &theme(name))"
  17   2..87  fg=#c4623f bg=reset
  17  87..90  fg=#d4ccc2 bg=reset
  17  90..97  fg=#958e86 bg=reset
- 17  97..157 fg=#2b2724 bg=reset
+ 17  97..156 fg=#2b2724 bg=reset
+ 17 156..157 fg=#958e86 bg=reset
  17 157..160 fg=#c4623f bg=reset
  18   2..87  fg=#c4623f bg=reset
  18  87..90  fg=#d4ccc2 bg=reset
  18  90..97  fg=#958e86 bg=reset
- 18  97..157 fg=#2b2724 bg=reset
+ 18  97..156 fg=#2b2724 bg=reset
+ 18 156..157 fg=#958e86 bg=reset
  18 157..160 fg=#c4623f bg=reset
  19   2..87  fg=#c4623f bg=reset
  19  87..90  fg=#d4ccc2 bg=reset
  19  90..97  fg=#958e86 bg=reset
- 19  97..157 fg=#2b2724 bg=reset
+ 19  97..156 fg=#2b2724 bg=reset
+ 19 156..157 fg=#958e86 bg=reset
  19 157..160 fg=#c4623f bg=reset
  20   2..87  fg=#c4623f bg=reset
  20  87..89  fg=#d4ccc2 bg=reset
  20  89..93  fg=#958e86 bg=#ece5dc
- 20  93..157 fg=#2b2724 bg=#ece5dc
+ 20  93..156 fg=#2b2724 bg=#ece5dc
+ 20 156..157 fg=#958e86 bg=reset
  20 157..160 fg=#c4623f bg=reset
  21   2..87  fg=#c4623f bg=reset
  21  87..90  fg=#d4ccc2 bg=reset
  21  90..97  fg=#958e86 bg=reset
- 21  97..157 fg=#2b2724 bg=reset
+ 21  97..156 fg=#2b2724 bg=reset
+ 21 156..157 fg=#958e86 bg=reset
  21 157..160 fg=#c4623f bg=reset
  22   2..87  fg=#c4623f bg=reset
  22  87..90  fg=#d4ccc2 bg=reset
  22  90..97  fg=#958e86 bg=reset
- 22  97..157 fg=#2b2724 bg=reset
+ 22  97..156 fg=#2b2724 bg=reset
+ 22 156..157 fg=#958e86 bg=reset
  22 157..160 fg=#c4623f bg=reset
  23   2..87  fg=#c4623f bg=reset
  23  87..90  fg=#d4ccc2 bg=reset
  23  90..97  fg=#958e86 bg=reset
- 23  97..157 fg=#2b2724 bg=reset
+ 23  97..156 fg=#2b2724 bg=reset
+ 23 156..157 fg=#958e86 bg=reset
  23 157..160 fg=#c4623f bg=reset
  24   2..87  fg=#c4623f bg=reset
  24  87..90  fg=#d4ccc2 bg=reset
  24  90..97  fg=#958e86 bg=reset
- 24  97..157 fg=#2b2724 bg=reset
+ 24  97..156 fg=#2b2724 bg=reset
+ 24 156..157 fg=#958e86 bg=reset
  24 157..160 fg=#c4623f bg=reset
  25   2..87  fg=#c4623f bg=reset
  25  87..90  fg=#d4ccc2 bg=reset

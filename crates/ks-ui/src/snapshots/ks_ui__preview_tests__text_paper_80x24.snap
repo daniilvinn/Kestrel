@@ -6,13 +6,13 @@ expression: "draw(&state, &theme)"
 ────────────────────────────────────────────────────────────────────────────────
    ◆ current/                  │ vulkan_device.rs       Rust · 14.2 KB · 3h ago
    ◆ passes/               7 M │────────────────────────────────────────────────
-   ◆ shaders/             12 ! │  1 use ash::vk;
-   ◆ a_rath…row.rs   75.2 KB   │  2 use crate::core::{Result, Handle};
-   ◆ build.ps1        1.9 KB   │  3
-   ◆ bundle.zip      21.5 KB   │  4 pub struct VulkanDevice {
-   ◆ descri…ors.rs    6.1 KB + │  5     instance: ash::Instance,
-   ◆ firmware.bin     4.0 KB   │  6     physical: vk::PhysicalDevice,
-   ◆ logo.png       510.7 KB   │  7     // queue families, filled in by pick()
+   ◆ shaders/             12 ! │  1 use ash::vk;                               ┃
+   ◆ a_rath…row.rs   75.2 KB   │  2 use crate::core::{Result, Handle};         ┃
+   ◆ build.ps1        1.9 KB   │  3                                            ┃
+   ◆ bundle.zip      21.5 KB   │  4 pub struct VulkanDevice {                  ┃
+   ◆ descri…ors.rs    6.1 KB + │  5     instance: ash::Instance,               ┃
+   ◆ firmware.bin     4.0 KB   │  6     physical: vk::PhysicalDevice,          ┃
+   ◆ logo.png       510.7 KB   │  7     // queue families, filled in by pick() ┃
    ◆ mod.rs            412 B   │  8     slot_0: u32, // 0
    ◆ new_pass.rs         0 B ? │  9     slot_1: u32, // 1
    ◆ photo_…ne.jpg    4.0 MB   │ 10     slot_2: u32, // 2
@@ -51,7 +51,8 @@ expression: "draw(&state, &theme)"
   4  34..36  fg=#958e86 bg=reset
   4  36..40  fg=#b04a2a bg=reset
   4  40..47  fg=#2b2724 bg=reset
-  4  47..80  fg=#6f6a60 bg=reset
+  4  47..79  fg=#6f6a60 bg=reset
+  4  79..80  fg=#958e86 bg=reset
   5   3..5   fg=#6b645d bg=reset
   5   5..21  fg=#2b2724 bg=reset
   5  21..31  fg=#6b645d bg=reset
@@ -63,7 +64,8 @@ expression: "draw(&state, &theme)"
   5  54..60  fg=#9a6a10 bg=reset
   5  60..62  fg=#6f6a60 bg=reset
   5  62..68  fg=#9a6a10 bg=reset
-  5  68..80  fg=#6f6a60 bg=reset
+  5  68..79  fg=#6f6a60 bg=reset
+  5  79..80  fg=#958e86 bg=reset
   6   3..22  fg=#3d7a3a bg=reset
   6  22..31  fg=#6b645d bg=reset
   6  31..34  fg=#d4ccc2 bg=reset
@@ -75,7 +77,8 @@ expression: "draw(&state, &theme)"
   7  34..36  fg=#958e86 bg=reset
   7  36..47  fg=#b04a2a bg=reset
   7  47..60  fg=#9a6a10 bg=reset
-  7  60..80  fg=#6f6a60 bg=reset
+  7  60..79  fg=#6f6a60 bg=reset
+  7  79..80  fg=#958e86 bg=reset
   8   3..5   fg=#6b645d bg=reset
   8   5..22  fg=#2b2724 bg=reset
   8  22..29  fg=#6b645d bg=reset
@@ -85,7 +88,8 @@ expression: "draw(&state, &theme)"
   8  40..48  fg=#2b2724 bg=reset
   8  48..50  fg=#6f6a60 bg=reset
   8  50..63  fg=#9a6a10 bg=reset
-  8  63..80  fg=#6f6a60 bg=reset
+  8  63..79  fg=#6f6a60 bg=reset
+  8  79..80  fg=#958e86 bg=reset
   9   3..5   fg=#6b645d bg=reset
   9   5..22  fg=#2b2724 bg=reset
   9  22..31  fg=#6b645d bg=reset
@@ -94,13 +98,15 @@ expression: "draw(&state, &theme)"
   9  40..48  fg=#2b2724 bg=reset
   9  48..50  fg=#6f6a60 bg=reset
   9  50..68  fg=#9a6a10 bg=reset
-  9  68..80  fg=#6f6a60 bg=reset
+  9  68..79  fg=#6f6a60 bg=reset
+  9  79..80  fg=#958e86 bg=reset
  10   3..5   fg=#6b645d bg=reset
  10   5..20  fg=#2b2724 bg=reset
  10  20..31  fg=#6b645d bg=reset
  10  31..34  fg=#d4ccc2 bg=reset
  10  34..40  fg=#958e86 bg=reset
- 10  40..80  fg=#8a847a bg=reset italic
+ 10  40..79  fg=#8a847a bg=reset italic
+ 10  79..80  fg=#958e86 bg=reset
  11   3..5   fg=#6b645d bg=reset
  11   5..23  fg=#2b2724 bg=reset
  11  23..31  fg=#6b645d bg=reset

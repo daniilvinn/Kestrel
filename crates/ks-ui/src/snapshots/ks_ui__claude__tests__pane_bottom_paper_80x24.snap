@@ -5,17 +5,17 @@ expression: rendered
  ~/projects/omniforce/src/renderer                             main ↑1 +1 ~2 ?1
 ────────────────────────────────────────────────────────────────────────────────
    ◆ passes/                                                                7 M
-   ◆ shaders/                                                              12 !
-   ◆ a_rather_long_file_name_that_must_be_cut_in_the_middle…_row.rs   75.2 KB
-   ◆ build.ps1                                                         1.9 KB
-   ◆ descriptors.rs                                                    6.1 KB +
-   ◆ mod.rs                                                             412 B
-   ◆ new_pass.rs                                                          0 B ?
-   ◆ photo_from_phone.jpg                                              4.0 MB
-   ◆ pipeline_cache.rs                                                 3.3 KB
-  ●◆ swapchain.rs                                                      9.8 KB
- ▌ ◆ vulkan_device.rs                                             ◆   14.2 KB M
-   ◆ 日本語のメモ.txt                                                   220 B
+   ◆ shaders/                                                              12 !┃
+   ◆ a_rather_long_file_name_that_must_be_cut_in_the_middle…_row.rs   75.2 KB  ┃
+   ◆ build.ps1                                                         1.9 KB  ┃
+   ◆ descriptors.rs                                                    6.1 KB +┃
+   ◆ mod.rs                                                             412 B  ┃
+   ◆ new_pass.rs                                                          0 B ?┃
+   ◆ photo_from_phone.jpg                                              4.0 MB  ┃
+   ◆ pipeline_cache.rs                                                 3.3 KB  ┃
+  ●◆ swapchain.rs                                                      9.8 KB  ┃
+ ▌ ◆ vulkan_device.rs                                             ◆   14.2 KB M┃
+   ◆ 日本語のメモ.txt                                                   220 B  ┃
  Claude ─────────────────────────────────────────────── ◆ Edit vulkan_device.rs
  * Welcome to Claude Code
  cwd: /home/me/projects/omniforce
@@ -40,33 +40,42 @@ expression: rendered
   2  78..80  fg=#a86f12 bg=reset
   3   3..75  fg=#2f6690 bg=reset
   3  75..78  fg=#6b645d bg=reset
-  3  78..80  fg=#a39c94 bg=reset
+  3  78..79  fg=#a39c94 bg=reset
+  3  79..80  fg=#958e86 bg=reset
   4   3..5   fg=#6b645d bg=reset
   4   5..70  fg=#2b2724 bg=reset
-  4  70..80  fg=#6b645d bg=reset
+  4  70..79  fg=#6b645d bg=reset
+  4  79..80  fg=#958e86 bg=reset
   5   3..71  fg=#3d7a3a bg=reset
-  5  71..80  fg=#6b645d bg=reset
+  5  71..79  fg=#6b645d bg=reset
+  5  79..80  fg=#958e86 bg=reset
   6   3..5   fg=#6b645d bg=reset
   6   5..71  fg=#2b2724 bg=reset
   6  71..78  fg=#6b645d bg=reset
-  6  78..80  fg=#3d7a3a bg=reset
+  6  78..79  fg=#3d7a3a bg=reset
+  6  79..80  fg=#958e86 bg=reset
   7   3..5   fg=#6b645d bg=reset
   7   5..72  fg=#2b2724 bg=reset
-  7  72..80  fg=#6b645d bg=reset
+  7  72..79  fg=#6b645d bg=reset
+  7  79..80  fg=#958e86 bg=reset
   8   3..5   fg=#6b645d bg=reset
   8   5..74  fg=#2b2724 bg=reset
   8  74..78  fg=#6b645d bg=reset
-  8  78..80  fg=#8a6a3f bg=reset
+  8  78..79  fg=#8a6a3f bg=reset
+  8  79..80  fg=#958e86 bg=reset
   9   3..5   fg=#6b645d bg=reset
   9   5..71  fg=#6b645d bg=reset italic
-  9  71..80  fg=#6b645d bg=reset
+  9  71..79  fg=#6b645d bg=reset
+  9  79..80  fg=#958e86 bg=reset
  10   3..5   fg=#6b645d bg=reset
  10   5..71  fg=#2b2724 bg=reset
- 10  71..80  fg=#6b645d bg=reset
+ 10  71..79  fg=#6b645d bg=reset
+ 10  79..80  fg=#958e86 bg=reset
  11   2..3   fg=#c4623f bg=reset
  11   3..5   fg=#6b645d bg=reset
  11   5..71  fg=#c4623f bg=reset bold
- 11  71..80  fg=#6b645d bg=reset
+ 11  71..79  fg=#6b645d bg=reset
+ 11  79..80  fg=#958e86 bg=reset
  12   0..1   fg=#2b2724 bg=#ece5dc
  12   1..3   fg=#c4623f bg=#ece5dc
  12   3..5   fg=#6b645d bg=#ece5dc
@@ -76,10 +85,11 @@ expression: rendered
  12  68..77  fg=#6b645d bg=#ece5dc
  12  77..78  fg=#2b2724 bg=#ece5dc
  12  78..79  fg=#a86f12 bg=#ece5dc
- 12  79..80  fg=#2b2724 bg=#ece5dc
+ 12  79..80  fg=#958e86 bg=#ece5dc
  13   3..5   fg=#6b645d bg=reset
  13   5..72  fg=#2b2724 bg=reset
- 13  72..80  fg=#6b645d bg=reset
+ 13  72..79  fg=#6b645d bg=reset
+ 13  79..80  fg=#958e86 bg=reset
  14   1..8   fg=#c4623f bg=reset bold
  14   8..58  fg=#c4623f bg=reset
  14  58..80  fg=#6b645d bg=reset

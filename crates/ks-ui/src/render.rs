@@ -73,6 +73,14 @@ pub fn render(frame: &mut Frame, state: &AppState, theme: &Theme) {
     crate::claude::render_overlays(frame, state, theme);
 }
 
+/// The terminal window (tab) title: the place the active tab shows, then the app name.
+pub fn window_title(state: &AppState) -> String {
+    let place =
+        ks_core::tabs::place_title(&state.cwd, state.show_drives, state.view.label.as_deref());
+    // Sanitized: the title travels inside an escape sequence.
+    format!("{} — Kestrel", crate::text::sanitize(&place))
+}
+
 fn render_header(frame: &mut Frame, area: Rect, state: &AppState, theme: &Theme) {
     // The git summary sits on the right and is never elided; the path gives way.
     let mut right = if state.show_drives {

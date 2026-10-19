@@ -105,6 +105,16 @@ pub fn render_list(frame: &mut Frame, area: Rect, state: &AppState, theme: &Them
         })
         .collect();
     frame.render_widget(Paragraph::new(lines), area);
+    // In the right margin, so it never covers a name or a size.
+    crate::scrollbar::render(
+        frame.buffer_mut(),
+        area.right().saturating_sub(1),
+        area,
+        view.len(),
+        first,
+        theme,
+        state.config.icons == IconSet::Ascii,
+    );
 }
 
 struct RowContext<'a> {

@@ -2,7 +2,7 @@
 source: crates/ks-ui/src/navaids.rs
 expression: "draw(&s, &theme(name))"
 ---
- ~/projects/omniforce/src/renderer                    main ↑1 +1 ~2 ?1  1 ▏2 ▏3
+ ~/…/src/renderer          main ↑1 +1 ~2 ?1  1 renderer ▏2 renderer ▏3 renderer
 ────────────────────────────────────────────────────────────────────────────────
    ◆ current/
    ◆ passes/                                                                7 M
@@ -27,18 +27,18 @@ expression: "draw(&s, &theme(name))"
  ›                                                                        12/13
    ‹h› parent  ‹l› open  ‹/› filter  ‹:› commands  ‹?› help  ‹q› quit
 --- styles (row cols fg bg mods) ---
-  0   1..26  fg=#a9a29a bg=reset
-  0  26..54  fg=#e8e3dc bg=reset bold
-  0  54..59  fg=#a9a29a bg=reset bold
-  0  59..62  fg=#a9a29a bg=reset
-  0  62..65  fg=#92c07f bg=reset
-  0  65..68  fg=#e5b567 bg=reset
-  0  68..72  fg=#c9a27f bg=reset
-  0  72..74  fg=#a9a29a bg=reset
-  0  74..75  fg=#716b64 bg=reset
-  0  75..77  fg=#d97757 bg=reset bold
-  0  77..78  fg=#716b64 bg=reset
-  0  78..80  fg=#a9a29a bg=reset
+  0   1..9   fg=#a9a29a bg=reset
+  0   9..27  fg=#e8e3dc bg=reset bold
+  0  27..32  fg=#a9a29a bg=reset bold
+  0  32..35  fg=#a9a29a bg=reset
+  0  35..38  fg=#92c07f bg=reset
+  0  38..41  fg=#e5b567 bg=reset
+  0  41..45  fg=#c9a27f bg=reset
+  0  45..56  fg=#a9a29a bg=reset
+  0  56..57  fg=#716b64 bg=reset
+  0  57..68  fg=#d97757 bg=reset bold
+  0  68..69  fg=#716b64 bg=reset
+  0  69..80  fg=#a9a29a bg=reset
   1   0..80  fg=#403a35 bg=reset
   2   3..5   fg=#7fa8c9 bg=reset
   2   5..80  fg=#b799d9 bg=reset

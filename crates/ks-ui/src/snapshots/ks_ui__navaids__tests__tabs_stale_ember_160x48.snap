@@ -2,7 +2,7 @@
 source: crates/ks-ui/src/navaids.rs
 expression: "draw(&s, &theme(name))"
 ---
- ~/projects/omniforce/src/renderer                                                                                                                    1• ▏2 ▏3•
+ ~/projects/omniforce/src/renderer                                                                                         1 renderer• ▏2 renderer ▏3 renderer•
 ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
    ◆ current/                                                                                                                                      2025-02-02
    ◆ passes/                                                                                                                                     7     5h ago
@@ -52,12 +52,12 @@ expression: "draw(&s, &theme(name))"
    ‹h› parent  ‹l› open  ‹space› mark  ‹.› hidden  ‹g /› drives  ‹/› filter  ‹ctrl-p› find  ‹ctrl-f› search  ‹:› commands  ‹?› help  ‹q› quit
 --- styles (row cols fg bg mods) ---
   0   1..26  fg=#a9a29a bg=reset
-  0  26..150 fg=#e8e3dc bg=reset bold
-  0 150..151 fg=#a9a29a bg=reset
-  0 151..154 fg=#716b64 bg=reset
-  0 154..156 fg=#d97757 bg=reset bold
-  0 156..157 fg=#716b64 bg=reset
-  0 157..158 fg=#a9a29a bg=reset
+  0  26..123 fg=#e8e3dc bg=reset bold
+  0 123..133 fg=#a9a29a bg=reset
+  0 133..136 fg=#716b64 bg=reset
+  0 136..147 fg=#d97757 bg=reset bold
+  0 147..148 fg=#716b64 bg=reset
+  0 148..158 fg=#a9a29a bg=reset
   0 158..160 fg=#716b64 bg=reset
   1   0..160 fg=#403a35 bg=reset
   2   3..5   fg=#7fa8c9 bg=reset

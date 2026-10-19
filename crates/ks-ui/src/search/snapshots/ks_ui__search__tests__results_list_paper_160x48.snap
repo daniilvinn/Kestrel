@@ -2,7 +2,7 @@
 source: crates/ks-ui/src/search/tests.rs
 expression: text
 ---
- Search results: handle                                                                                                                                    1 ▏2
+ Search results: handle                                                                                                          1 renderer ▏2 Search results:…
 ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
  ▌ ◆ passes/pass_a.rs
    ◆ vulkan_device.rs
@@ -51,10 +51,10 @@ expression: text
  ›                                                                                                                                                          1/3
    ‹h› parent  ‹l› open  ‹space› mark  ‹.› hidden  ‹g /› drives  ‹/› filter  ‹ctrl-p› find  ‹ctrl-f› search  ‹:› commands  ‹?› help  ‹q› quit
 --- styles (row cols fg bg mods) ---
-  0   1..155 fg=#c4623f bg=reset bold
-  0 155..157 fg=#6b645d bg=reset
-  0 157..158 fg=#958e86 bg=reset
-  0 158..160 fg=#c4623f bg=reset bold
+  0   1..129 fg=#c4623f bg=reset bold
+  0 129..140 fg=#6b645d bg=reset
+  0 140..141 fg=#958e86 bg=reset
+  0 141..160 fg=#c4623f bg=reset bold
   1   0..160 fg=#d4ccc2 bg=reset
   2   0..1   fg=#2b2724 bg=#ece5dc
   2   1..3   fg=#c4623f bg=#ece5dc

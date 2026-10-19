@@ -586,6 +586,16 @@ fn render_content(
         }
     };
     frame.render_widget(Paragraph::new(lines), area);
+    // In the right padding cell of the pane.
+    crate::scrollbar::render(
+        frame.buffer_mut(),
+        area.right(),
+        area,
+        ks_core::preview::content_len(preview, area.width),
+        scroll,
+        theme,
+        state.config.icons == ks_core::config::IconSet::Ascii,
+    );
 }
 
 // ----- text -----

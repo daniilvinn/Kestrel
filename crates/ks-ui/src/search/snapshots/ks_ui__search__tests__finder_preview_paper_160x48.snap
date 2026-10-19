@@ -1,6 +1,5 @@
 ---
 source: crates/ks-ui/src/search/tests.rs
-assertion_line: 608
 expression: "draw(&s, &theme(name))"
 ---
  ~/projects/omniforce/src/renderer                                                                                                             main ↑1 +1 ~2 ?1
@@ -10,15 +9,15 @@ expression: "draw(&s, &theme(name))"
   │──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────│!
   │  ●src/renderer/vulkan_device.rs                                                    │ render_graph.rs                                                     │
   │ ▌ src/renderer/render_graph.rs                                                     │─────────────────────────────────────────────────────────────────────│
-  │   src/renderer/passes/pass_a.rs                                                    │   1     let value_0 = compute(0);                                   │+
-  │   docs/renderer.md                                                                 │   2     let value_1 = compute(1);                                   │
-  │   …ender-notes/backend/an/extremely/deeply/nested/path/vulkan_renderer_overview.md │   3     let value_2 = compute(2);                                   │?
-  │   tools/extend.rs                                                                  │   4     let value_3 = compute(3);                                   │
-  │                                                                                    │   5     let value_4 = compute(4);                                   │
-  │                                                                                    │   6     let value_5 = compute(5);                                   │
- ▌│                                                                                    │   7     let value_6 = compute(6);                                   │M
-  │                                                                                    │   8     let value_7 = compute(7);                                   │
-  │                                                                                    │   9     let value_8 = compute(8);                                   │
+  │   src/renderer/passes/pass_a.rs                                                    │   1     let value_0 = compute(0);                                  ┃│+
+  │   docs/renderer.md                                                                 │   2     let value_1 = compute(1);                                  ┃│
+  │   …ender-notes/backend/an/extremely/deeply/nested/path/vulkan_renderer_overview.md │   3     let value_2 = compute(2);                                  ┃│?
+  │   tools/extend.rs                                                                  │   4     let value_3 = compute(3);                                  ┃│
+  │                                                                                    │   5     let value_4 = compute(4);                                  ┃│
+  │                                                                                    │   6     let value_5 = compute(5);                                  ┃│
+ ▌│                                                                                    │   7     let value_6 = compute(6);                                  ┃│M
+  │                                                                                    │   8     let value_7 = compute(7);                                  ┃│
+  │                                                                                    │   9     let value_8 = compute(8);                                  ┃│
   │                                                                                    │  10     let value_9 = compute(9);                                   │
   │                                                                                    │  11     let value_10 = compute(10);                                 │
   │                                                                                    │  12     let value_11 = compute(11);                                 │
@@ -99,7 +98,8 @@ expression: "draw(&s, &theme(name))"
   7  26..87  fg=#2b2724 bg=reset
   7  87..91  fg=#d4ccc2 bg=reset
   7  91..97  fg=#958e86 bg=reset
-  7  97..157 fg=#2b2724 bg=reset
+  7  97..156 fg=#2b2724 bg=reset
+  7 156..157 fg=#958e86 bg=reset
   7 157..158 fg=#c4623f bg=reset
   7 158..160 fg=#3d7a3a bg=reset
   8   2..6   fg=#c4623f bg=reset
@@ -108,7 +108,8 @@ expression: "draw(&s, &theme(name))"
   8  15..87  fg=#2b2724 bg=reset
   8  87..91  fg=#d4ccc2 bg=reset
   8  91..97  fg=#958e86 bg=reset
-  8  97..157 fg=#2b2724 bg=reset
+  8  97..156 fg=#2b2724 bg=reset
+  8 156..157 fg=#958e86 bg=reset
   8 157..160 fg=#c4623f bg=reset
   9   2..6   fg=#c4623f bg=reset
   9   6..7   fg=#958e86 bg=reset
@@ -118,7 +119,8 @@ expression: "draw(&s, &theme(name))"
   9  76..87  fg=#2b2724 bg=reset
   9  87..91  fg=#d4ccc2 bg=reset
   9  91..97  fg=#958e86 bg=reset
-  9  97..157 fg=#2b2724 bg=reset
+  9  97..156 fg=#2b2724 bg=reset
+  9 156..157 fg=#958e86 bg=reset
   9 157..158 fg=#c4623f bg=reset
   9 158..160 fg=#8a6a3f bg=reset
  10   2..6   fg=#c4623f bg=reset
@@ -126,36 +128,42 @@ expression: "draw(&s, &theme(name))"
  10  12..87  fg=#2b2724 bg=reset
  10  87..91  fg=#d4ccc2 bg=reset
  10  91..97  fg=#958e86 bg=reset
- 10  97..157 fg=#2b2724 bg=reset
+ 10  97..156 fg=#2b2724 bg=reset
+ 10 156..157 fg=#958e86 bg=reset
  10 157..160 fg=#c4623f bg=reset
  11   2..87  fg=#c4623f bg=reset
  11  87..91  fg=#d4ccc2 bg=reset
  11  91..97  fg=#958e86 bg=reset
- 11  97..157 fg=#2b2724 bg=reset
+ 11  97..156 fg=#2b2724 bg=reset
+ 11 156..157 fg=#958e86 bg=reset
  11 157..160 fg=#c4623f bg=reset
  12   2..87  fg=#c4623f bg=reset
  12  87..91  fg=#d4ccc2 bg=reset
  12  91..97  fg=#958e86 bg=reset
- 12  97..157 fg=#2b2724 bg=reset
+ 12  97..156 fg=#2b2724 bg=reset
+ 12 156..157 fg=#958e86 bg=reset
  12 157..160 fg=#c4623f bg=reset
  13   0..1   fg=#2b2724 bg=#ece5dc
  13   1..2   fg=#c4623f bg=#ece5dc
  13   2..87  fg=#c4623f bg=reset
  13  87..91  fg=#d4ccc2 bg=reset
  13  91..97  fg=#958e86 bg=reset
- 13  97..157 fg=#2b2724 bg=reset
+ 13  97..156 fg=#2b2724 bg=reset
+ 13 156..157 fg=#958e86 bg=reset
  13 157..158 fg=#c4623f bg=reset
  13 158..159 fg=#a86f12 bg=#ece5dc
  13 159..160 fg=#2b2724 bg=#ece5dc
  14   2..87  fg=#c4623f bg=reset
  14  87..91  fg=#d4ccc2 bg=reset
  14  91..97  fg=#958e86 bg=reset
- 14  97..157 fg=#2b2724 bg=reset
+ 14  97..156 fg=#2b2724 bg=reset
+ 14 156..157 fg=#958e86 bg=reset
  14 157..160 fg=#c4623f bg=reset
  15   2..87  fg=#c4623f bg=reset
  15  87..91  fg=#d4ccc2 bg=reset
  15  91..97  fg=#958e86 bg=reset
- 15  97..157 fg=#2b2724 bg=reset
+ 15  97..156 fg=#2b2724 bg=reset
+ 15 156..157 fg=#958e86 bg=reset
  15 157..160 fg=#c4623f bg=reset
  16   2..87  fg=#c4623f bg=reset
  16  87..90  fg=#d4ccc2 bg=reset

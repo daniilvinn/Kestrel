@@ -13,6 +13,7 @@ pub mod palette;
 pub mod popup;
 pub mod preview;
 pub mod render;
+mod scrollbar;
 pub mod search;
 pub mod syntax;
 pub mod text;

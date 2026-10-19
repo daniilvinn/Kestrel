@@ -17,7 +17,7 @@
 
 use std::collections::HashMap;
 use std::ffi::OsString;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 
 use crate::drives::DrivesView;
 use crate::effect::Effect;
@@ -144,6 +144,15 @@ impl Tabs {
             .unwrap_or_default()
     }
 
+    /// Short name of tab `index`: its directory's name, "This PC", or a results list's label.
+    /// `state` supplies the active tab, whose data lives there.
+    pub fn title(&self, state: &AppState, index: usize) -> String {
+        match self.slots.get(index).and_then(Option::as_ref) {
+            Some(slot) => place_title(&slot.cwd, slot.show_drives, slot.view.label.as_deref()),
+            None => place_title(&state.cwd, state.show_drives, state.view.label.as_deref()),
+        }
+    }
+
     /// Whether the directory of the parked tab `index` changed since it was left.
     pub fn is_stale(&self, index: usize) -> bool {
         self.slots
@@ -151,6 +160,35 @@ impl Tabs {
             .and_then(Option::as_ref)
             .is_some_and(|slot| slot.stale)
     }
+}
+
+/// What a tab or the terminal title calls a place: the last path component (`C:` for a drive
+/// root), "This PC", or the label of a results list.
+pub fn place_title(cwd: &Path, show_drives: bool, label: Option<&str>) -> String {
+    if show_drives {
+        return "This PC".to_owned();
+    }
+    if let Some(label) = label {
+        return label.to_owned();
+    }
+    match cwd.file_name() {
+        Some(name) => name.to_string_lossy().into_owned(),
+        None => {
+            let shown = dunce_like(cwd);
+            let trimmed = shown.trim_end_matches(['\\', '/']);
+            if trimmed.is_empty() {
+                shown
+            } else {
+                trimmed.to_owned()
+            }
+        }
+    }
+}
+
+/// `path` as text without a `\\?\` verbatim prefix.
+fn dunce_like(path: &Path) -> String {
+    let text = path.to_string_lossy();
+    text.strip_prefix(r"\\?\").unwrap_or(&text).to_owned()
 }
 
 /// Tells the effect runner which directories the parked tabs show, so it can watch them.
@@ -950,5 +988,24 @@ mod tests {
         let shown = w.state.view.show_hidden;
         w.key("t");
         assert_eq!(w.state.view.show_hidden, shown);
+    }
+
+    #[test]
+    fn place_titles_name_the_directory_drive_or_list() {
+        use super::place_title;
+        assert_eq!(
+            place_title(Path::new("/home/me/projects"), false, None),
+            "projects"
+        );
+        assert_eq!(place_title(Path::new("/home/me"), true, None), "This PC");
+        assert_eq!(
+            place_title(Path::new("/home/me"), false, Some("Search results: x")),
+            "Search results: x"
+        );
+        #[cfg(windows)]
+        {
+            assert_eq!(place_title(Path::new(r"C:\"), false, None), "C:");
+            assert_eq!(place_title(Path::new(r"\\?\D:\"), false, None), "D:");
+        }
     }
 }

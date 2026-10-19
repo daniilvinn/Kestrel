@@ -15,17 +15,25 @@ use crate::theme::Theme;
 
 const CURSOR_GLYPH: &str = "▌";
 
-/// `1 ▏2 ▏3` with the active tab in the accent colour. Empty with a single tab.
+/// Longest tab name in the strip.
+const TAB_NAME_MAX: usize = 16;
+/// Below this, names are dropped and only the numbers remain.
+const TAB_NAME_MIN: usize = 4;
+
+/// `1 src ▏2 Kestrel ▏3 docs` with the active tab in the accent colour. Empty with a single
+/// tab. Names shrink so the strip takes at most half the header, and disappear on a header too
+/// narrow for them.
 pub fn tab_strip(state: &AppState, theme: &Theme) -> Vec<Span<'static>> {
     let count = state.tabs.count();
     if count < 2 {
         return Vec::new();
     }
-    let separator = if state.config.icons == IconSet::Ascii {
-        "|"
-    } else {
-        "▏"
-    };
+    let ascii = state.config.icons == IconSet::Ascii;
+    let separator = if ascii { "|" } else { "▏" };
+    // Per tab: the number, a space before the name and the separator.
+    let budget = usize::from(state.size.width) / 2;
+    let per_tab = (budget / count).saturating_sub(4).min(TAB_NAME_MAX);
+    let names = per_tab >= TAB_NAME_MIN;
     let mut spans = Vec::new();
     for index in 0..count {
         if index > 0 {
@@ -37,13 +45,16 @@ pub fn tab_strip(state: &AppState, theme: &Theme) -> Vec<Span<'static>> {
             theme.dim()
         };
         spans.push(Span::styled((index + 1).to_string(), style));
+        if names {
+            let name = sanitize(&state.tabs.title(state, index));
+            spans.push(Span::styled(
+                format!(" {}", truncate_end(&name, per_tab)),
+                style,
+            ));
+        }
         if state.tabs.is_stale(index) {
             // The tab's directory changed while it was in the background.
-            let mark = if state.config.icons == IconSet::Ascii {
-                "*"
-            } else {
-                "•"
-            };
+            let mark = if ascii { "*" } else { "•" };
             spans.push(Span::styled(mark, theme.muted()));
         }
     }
@@ -493,6 +504,18 @@ mod tests {
         assert_eq!(digits[1].style.fg, Some(t.accent));
         assert_ne!(digits[0].style.fg, Some(t.accent));
         assert_ne!(digits[2].style.fg, Some(t.accent));
+    }
+
+    #[test]
+    fn tabs_are_named_after_their_directory() {
+        let mut s = listing_state(120, 30);
+        press(&mut s, "t");
+        let plain: String = tab_strip(&s, &theme("ember"))
+            .iter()
+            .map(|sp| sp.content.to_string())
+            .collect();
+        assert_eq!(plain, "1 renderer ▏2 renderer");
+        assert_eq!(crate::render::window_title(&s), "renderer — Kestrel");
     }
 
     #[test]

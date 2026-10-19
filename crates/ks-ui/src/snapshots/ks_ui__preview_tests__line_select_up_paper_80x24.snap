@@ -9,13 +9,13 @@ expression: "draw(&state, &theme)"
    ◆ shaders/             12 ! │  8     slot_0: u32, // 0
    ◆ a_rath…row.rs   75.2 KB   │  9     slot_1: u32, // 1
    ◆ build.ps1        1.9 KB   │ 10     slot_2: u32, // 2
-   ◆ bundle.zip      21.5 KB   │ 11     slot_3: u32, // 3
-   ◆ descri…ors.rs    6.1 KB + │ 12     slot_4: u32, // 4
-   ◆ firmware.bin     4.0 KB   │ 13     slot_5: u32, // 5
-   ◆ logo.png       510.7 KB   │ 14     slot_6: u32, // 6
-   ◆ mod.rs            412 B   │ 15     slot_7: u32, // 7
-   ◆ new_pass.rs         0 B ? │ 16     slot_8: u32, // 8
-   ◆ photo_…ne.jpg    4.0 MB   │ 17     slot_9: u32, // 9
+   ◆ bundle.zip      21.5 KB   │ 11     slot_3: u32, // 3                      ┃
+   ◆ descri…ors.rs    6.1 KB + │ 12     slot_4: u32, // 4                      ┃
+   ◆ firmware.bin     4.0 KB   │ 13     slot_5: u32, // 5                      ┃
+   ◆ logo.png       510.7 KB   │ 14     slot_6: u32, // 6                      ┃
+   ◆ mod.rs            412 B   │ 15     slot_7: u32, // 7                      ┃
+   ◆ new_pass.rs         0 B ? │ 16     slot_8: u32, // 8                      ┃
+   ◆ photo_…ne.jpg    4.0 MB   │ 17     slot_9: u32, // 9                      ┃
    ◆ pipeli…che.rs    3.3 KB   │ 18     slot_10: u32, // 10
    ◆ README.md        3.0 KB   │ 19     slot_11: u32, // 11
   ●◆ swapchain.rs     9.8 KB   │ 20     slot_12: u32, // 12
@@ -84,7 +84,8 @@ expression: "draw(&state, &theme)"
   7  46..48  fg=#6f6a60 bg=reset
   7  48..51  fg=#9a6a10 bg=reset
   7  51..53  fg=#6f6a60 bg=reset
-  7  53..80  fg=#8a847a bg=reset italic
+  7  53..79  fg=#8a847a bg=reset italic
+  7  79..80  fg=#958e86 bg=reset
   8   3..5   fg=#6b645d bg=reset
   8   5..22  fg=#2b2724 bg=reset
   8  22..29  fg=#6b645d bg=reset
@@ -95,7 +96,8 @@ expression: "draw(&state, &theme)"
   8  46..48  fg=#6f6a60 bg=reset
   8  48..51  fg=#9a6a10 bg=reset
   8  51..53  fg=#6f6a60 bg=reset
-  8  53..80  fg=#8a847a bg=reset italic
+  8  53..79  fg=#8a847a bg=reset italic
+  8  79..80  fg=#958e86 bg=reset
   9   3..5   fg=#6b645d bg=reset
   9   5..22  fg=#2b2724 bg=reset
   9  22..31  fg=#6b645d bg=reset
@@ -105,7 +107,8 @@ expression: "draw(&state, &theme)"
   9  46..48  fg=#6f6a60 bg=reset
   9  48..51  fg=#9a6a10 bg=reset
   9  51..53  fg=#6f6a60 bg=reset
-  9  53..80  fg=#8a847a bg=reset italic
+  9  53..79  fg=#8a847a bg=reset italic
+  9  79..80  fg=#958e86 bg=reset
  10   3..5   fg=#6b645d bg=reset
  10   5..20  fg=#2b2724 bg=reset
  10  20..31  fg=#6b645d bg=reset
@@ -115,7 +118,8 @@ expression: "draw(&state, &theme)"
  10  46..48  fg=#6f6a60 bg=reset
  10  48..51  fg=#9a6a10 bg=reset
  10  51..53  fg=#6f6a60 bg=reset
- 10  53..80  fg=#8a847a bg=reset italic
+ 10  53..79  fg=#8a847a bg=reset italic
+ 10  79..80  fg=#958e86 bg=reset
  11   3..5   fg=#6b645d bg=reset
  11   5..23  fg=#2b2724 bg=reset
  11  23..31  fg=#6b645d bg=reset
@@ -125,7 +129,8 @@ expression: "draw(&state, &theme)"
  11  46..48  fg=#6f6a60 bg=reset
  11  48..51  fg=#9a6a10 bg=reset
  11  51..53  fg=#6f6a60 bg=reset
- 11  53..80  fg=#8a847a bg=reset italic
+ 11  53..79  fg=#8a847a bg=reset italic
+ 11  79..80  fg=#958e86 bg=reset
  12   3..5   fg=#6b645d bg=reset
  12   5..25  fg=#2b2724 bg=reset
  12  25..29  fg=#6b645d bg=reset
@@ -136,7 +141,8 @@ expression: "draw(&state, &theme)"
  12  46..48  fg=#6f6a60 bg=reset
  12  48..51  fg=#9a6a10 bg=reset
  12  51..53  fg=#6f6a60 bg=reset
- 12  53..80  fg=#8a847a bg=reset italic
+ 12  53..79  fg=#8a847a bg=reset italic
+ 12  79..80  fg=#958e86 bg=reset
  13   3..5   fg=#6b645d bg=reset
  13   5..22  fg=#6b645d bg=reset italic
  13  22..31  fg=#6b645d bg=reset
@@ -146,7 +152,8 @@ expression: "draw(&state, &theme)"
  13  46..48  fg=#6f6a60 bg=reset
  13  48..51  fg=#9a6a10 bg=reset
  13  51..53  fg=#6f6a60 bg=reset
- 13  53..80  fg=#8a847a bg=reset italic
+ 13  53..79  fg=#8a847a bg=reset italic
+ 13  79..80  fg=#958e86 bg=reset
  14   3..5   fg=#6b645d bg=reset
  14   5..22  fg=#2b2724 bg=reset
  14  22..31  fg=#6b645d bg=reset

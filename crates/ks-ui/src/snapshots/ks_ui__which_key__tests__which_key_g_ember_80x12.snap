@@ -8,10 +8,10 @@ expression: "draw(&pending(80, 12, &['g']), &theme(name))"
    ◆ mod.rs       │ g  Jump to top                j  Jobs overlay             │
    ◆ new_pass.rs  │ h  Go to home directory       r  Resume Claude session    │
    ◆ photo_from_ph│ d  Go to Downloads            w  Claude in terminal split │
-   ◆ pipeline_cach│ D  Go to Desktop              a  Claude changes           │
-  ●◆ swapchain.rs │ c  Go to config directory     X  Close Claude pane        │
- ▌ ◆ vulkan_device│ /  Go to This PC (drives)     p  Move Claude pane         │
-   ◆ 日本語のメモ.╰───────────────────────────────────────────────────────────╯
+   ◆ pipeline_cach│ D  Go to Desktop              a  Claude changes           │┃
+  ●◆ swapchain.rs │ c  Go to config directory     X  Close Claude pane        │┃
+ ▌ ◆ vulkan_device│ /  Go to This PC (drives)     p  Move Claude pane         │┃
+   ◆ 日本語のメモ.╰───────────────────────────────────────────────────────────╯┃
 ────────────────────────────────────────────────────────────────────────────────
  ›                                                        g  12/13 · 1 selected
 --- styles (row cols fg bg mods) ---
@@ -59,7 +59,8 @@ expression: "draw(&pending(80, 12, &['g']), &theme(name))"
   6  23..50  fg=#a9a29a bg=reset
   6  50..53  fg=#d97757 bg=reset bold
   6  53..78  fg=#a9a29a bg=reset
-  6  78..80  fg=#403a35 bg=reset
+  6  78..79  fg=#403a35 bg=reset
+  6  79..80  fg=#716b64 bg=reset
   7   2..3   fg=#d97757 bg=reset
   7   3..5   fg=#a9a29a bg=reset
   7   5..18  fg=#d97757 bg=reset bold
@@ -68,7 +69,8 @@ expression: "draw(&pending(80, 12, &['g']), &theme(name))"
   7  23..50  fg=#a9a29a bg=reset
   7  50..53  fg=#d97757 bg=reset bold
   7  53..78  fg=#a9a29a bg=reset
-  7  78..80  fg=#403a35 bg=reset
+  7  78..79  fg=#403a35 bg=reset
+  7  79..80  fg=#716b64 bg=reset
   8   0..1   fg=#e8e3dc bg=#2f2a26
   8   1..3   fg=#d97757 bg=#2f2a26
   8   3..5   fg=#a9a29a bg=#2f2a26
@@ -79,10 +81,11 @@ expression: "draw(&pending(80, 12, &['g']), &theme(name))"
   8  50..53  fg=#d97757 bg=reset bold
   8  53..78  fg=#a9a29a bg=reset
   8  78..79  fg=#403a35 bg=reset
-  8  79..80  fg=#e8e3dc bg=#2f2a26
+  8  79..80  fg=#716b64 bg=#2f2a26
   9   3..5   fg=#a9a29a bg=reset
   9   5..18  fg=#e8e3dc bg=reset
-  9  18..80  fg=#403a35 bg=reset
+  9  18..79  fg=#403a35 bg=reset
+  9  79..80  fg=#716b64 bg=reset
  10   0..80  fg=#403a35 bg=reset
  11   1..61  fg=#d97757 bg=reset bold
  11  61..80  fg=#a9a29a bg=reset

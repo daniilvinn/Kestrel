@@ -18,6 +18,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   else gets a folder named after the archive. Entries that would escape the destination, links
   and password-protected entries are skipped and reported.
 - The preview lists the contents of RAR archives, not only ZIP.
+- Scrollbars: the file list and the preview show a thin thumb on their right edge when the
+  content is taller than the pane, so you can see where you are.
+- Tabs are named after their directory in the header (`1 src ▏2 docs`); names shrink to fit
+  and give way to plain numbers on a narrow terminal.
+- The terminal window / tab title follows the current directory (`src — Kestrel`) and goes
+  back to the shell's title when Kestrel exits.
 
 ## [0.1.0] - 2026-10-11
 
