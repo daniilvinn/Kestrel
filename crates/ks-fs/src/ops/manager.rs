@@ -370,6 +370,10 @@ fn absolutize_spec(spec: JobSpec) -> JobSpec {
             }
             JobSpec::Create { entries }
         }
+        JobSpec::Extract { archives, dest_dir } => JobSpec::Extract {
+            archives: archives.iter().map(|p| absolutize(p)).collect(),
+            dest_dir: absolutize(&dest_dir),
+        },
         other @ JobSpec::Restore { .. } => other,
     }
 }
@@ -540,5 +544,6 @@ fn execute(r: &mut Runner, spec: JobSpec, track_ids: bool) -> Flow {
         JobSpec::Create { entries } => r.run_create(entries),
         JobSpec::BulkRename { steps } => r.run_steps(steps),
         JobSpec::Restore { items } => r.run_restore(items),
+        JobSpec::Extract { archives, dest_dir } => r.run_extract(archives, dest_dir),
     }
 }

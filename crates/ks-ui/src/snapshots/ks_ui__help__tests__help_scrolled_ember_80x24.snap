@@ -23,7 +23,7 @@ expression: "draw(&s, &theme(name))"
   │   tab, backtab (grep)     Search contents: switch query/glo…             │
   │   ctrl-l (grep)           Search contents: open results as …             │
   │   alt-m (grep)            Search contents: mark the hit                  │
-──╰──────────────────────────────────────────────────────────── 17-33 / 117 ─╯──
+──╰──────────────────────────────────────────────────────────── 17-33 / 118 ─╯──
  ›                                                           12/13 · 1 selected
    ‹/› filter  ‹j› scroll  ‹ctrl-d› page  ‹esc› close
 --- styles (row cols fg bg mods) ---

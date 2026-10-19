@@ -606,6 +606,9 @@ fn archive(
     opts: &PreviewOptions,
     cancel: &CancellationToken,
 ) -> Built {
+    if format == ArchiveFormat::Rar {
+        return rar_archive(path, opts, cancel);
+    }
     if format != ArchiveFormat::Zip {
         return Ok(PreviewBody::Archive(ArchivePreview {
             format,
@@ -654,6 +657,46 @@ fn archive(
     Ok(PreviewBody::Archive(ArchivePreview {
         format,
         listed: true,
+        entries,
+        total_entries,
+        total_size,
+        truncated: total_entries > cap,
+    }))
+}
+
+/// RAR listing through UnRAR. Headers only, so it is quick even for solid archives; an archive
+/// with encrypted headers (or a damaged one) shows as unlisted.
+fn rar_archive(path: &Path, opts: &PreviewOptions, cancel: &CancellationToken) -> Built {
+    let cap = opts.limits.max_archive_entries;
+    let mut entries = Vec::new();
+    let mut total_entries = 0usize;
+    let mut total_size = 0u64;
+    let listed = match unrar::Archive::new(path).open_for_listing() {
+        Ok(archive) => {
+            for header in archive {
+                if total_entries.is_multiple_of(256) {
+                    check(cancel)?;
+                }
+                let Ok(h) = header else { break };
+                total_entries += 1;
+                total_size = total_size.saturating_add(h.unpacked_size);
+                if entries.len() < cap {
+                    entries.push(ArchiveEntry {
+                        name: sanitize_line(&h.filename.to_string_lossy().replace('\\', "/"), 4),
+                        size: h.unpacked_size,
+                        // UnRAR does not report packed sizes per entry.
+                        compressed_size: 0,
+                        is_dir: h.is_directory(),
+                    });
+                }
+            }
+            true
+        }
+        Err(_) => false,
+    };
+    Ok(PreviewBody::Archive(ArchivePreview {
+        format: ArchiveFormat::Rar,
+        listed,
         entries,
         total_entries,
         total_size,

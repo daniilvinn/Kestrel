@@ -25,6 +25,7 @@ pub enum OpKind {
     Rename,
     BulkRename,
     Restore,
+    Extract,
 }
 
 impl OpKind {
@@ -39,6 +40,7 @@ impl OpKind {
             OpKind::Rename => "Renaming",
             OpKind::BulkRename => "Bulk renaming",
             OpKind::Restore => "Restoring",
+            OpKind::Extract => "Extracting",
         }
     }
 
@@ -53,6 +55,7 @@ impl OpKind {
             OpKind::Rename => "Renamed",
             OpKind::BulkRename => "Renamed",
             OpKind::Restore => "Restored",
+            OpKind::Extract => "Extracted",
         }
     }
 }
@@ -207,6 +210,11 @@ pub enum JobRequest {
     /// Ordered steps of a validated bulk-rename plan.
     BulkRename {
         steps: Vec<(PathBuf, PathBuf)>,
+    },
+    /// Archives to extract into `dest_dir`.
+    Extract {
+        archives: Vec<PathBuf>,
+        dest_dir: PathBuf,
     },
 }
 

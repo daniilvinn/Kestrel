@@ -24,7 +24,8 @@ tokio-util.workspace = true
 tracing.workspace = true
 two-face = { version = "0.5.2", default-features = false, features = ["syntect-fancy"] }
 unicode-width.workspace = true
-zip = { version = "9.0.1", default-features = false, features = ["deflate"] }
+unrar.workspace = true
+zip.workspace = true
 
 [dev-dependencies]
 tempfile.workspace = true

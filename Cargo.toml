@@ -65,4 +65,6 @@ tracing = "0.1.44"
 tracing-appender = "0.2.5"
 tracing-subscriber = { version = "0.3.23", features = ["env-filter", "fmt"] }
 unicode-width = "0.2.2"
+unrar = "0.5.8"
 windows = "0.62.2"
+zip = { version = "9.0.1", default-features = false, features = ["deflate", "deflate64", "lzma", "bzip2", "time"] }

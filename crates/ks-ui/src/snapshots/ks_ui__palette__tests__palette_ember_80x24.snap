@@ -5,7 +5,7 @@ expression: rendered
  ~/projects/omniforce/src/renderer                             main ↑1 +1 ~2 ?1
 ────────────────────────────────────────────────────────────────────────────────
    ◆ current/   ╭─ Commands ───────────────────────────────────╮
-   ◆ passes/    │ ›                                       1/99 │            7 M
+   ◆ passes/    │ ›                                      1/100 │            7 M
    ◆ shaders/   │──────────────────────────────────────────────│           12 !
    ◆ a_rather_lo│▌ Move cursor down                    j, down │.rs   75.2 KB
    ◆ build.ps1  │  Move cursor up                        k, up │       1.9 KB
@@ -42,8 +42,8 @@ expression: rendered
   2  28..80  fg=#8f5c47 bg=reset
   3   3..16  fg=#7fa8c9 bg=reset
   3  16..18  fg=#8f5c47 bg=reset
-  3  18..58  fg=#d97757 bg=reset bold
-  3  58..63  fg=#716b64 bg=reset
+  3  18..57  fg=#d97757 bg=reset bold
+  3  57..63  fg=#716b64 bg=reset
   3  63..76  fg=#8f5c47 bg=reset
   3  76..78  fg=#a9a29a bg=reset
   3  78..80  fg=#e5b567 bg=reset

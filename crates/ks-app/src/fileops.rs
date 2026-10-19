@@ -182,6 +182,7 @@ fn op_kind(kind: JobKind) -> OpKind {
         JobKind::Rename => OpKind::Rename,
         JobKind::BulkRename => OpKind::BulkRename,
         JobKind::Restore => OpKind::Restore,
+        JobKind::Extract => OpKind::Extract,
     }
 }
 
@@ -340,6 +341,7 @@ fn spec_of(request: JobRequest) -> JobSpec {
         JobRequest::BulkRename { steps } => JobSpec::BulkRename {
             steps: pairs(steps),
         },
+        JobRequest::Extract { archives, dest_dir } => JobSpec::Extract { archives, dest_dir },
     }
 }
 

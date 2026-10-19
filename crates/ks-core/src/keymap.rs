@@ -463,6 +463,7 @@ pub const DEFAULT_BINDINGS: &[(KeyContext, &str, &str)] = &[
     (C::Normal, "a", "file.create"),
     (C::Normal, "d", "file.trash"),
     (C::Normal, "D", "file.delete"),
+    (C::Normal, "X", "file.extract"),
     (C::Normal, "u", "file.undo"),
     (C::Normal, "o", "open.default"),
     (C::Normal, "O", "open.with"),

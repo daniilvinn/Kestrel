@@ -36,6 +36,9 @@ notify-debouncer-full.workspace = true
 tokio = { workspace = true, features = ["process"] }
 tokio-util.workspace = true
 tracing.workspace = true
+time = { version = "0.3.55", features = ["local-offset"] }
+unrar.workspace = true
+zip.workspace = true
 
 [target.'cfg(windows)'.dependencies]
 windows = { workspace = true, features = [

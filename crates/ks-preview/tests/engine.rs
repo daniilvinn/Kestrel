@@ -189,6 +189,28 @@ fn zip_entries_are_listed() {
 }
 
 #[test]
+fn rar_entries_are_listed() {
+    let p = Path::new(env!("CARGO_MANIFEST_DIR")).join("../ks-fs/tests/fixtures/nested.rar");
+    let PreviewBody::Archive(a) = build(&p, &PreviewOptions::default()).body else {
+        panic!()
+    };
+    assert_eq!(a.format, ArchiveFormat::Rar);
+    assert!(a.listed);
+    let mut names: Vec<_> = a.entries.iter().map(|e| e.name.as_str()).collect();
+    names.sort_unstable();
+    assert_eq!(
+        names,
+        [
+            "project",
+            "project/readme.txt",
+            "project/src",
+            "project/src/main.rs"
+        ]
+    );
+    assert_eq!(a.total_size, 15 + 13);
+}
+
+#[test]
 fn corrupt_zip_falls_back_to_hex() {
     let dir = tempfile::tempdir().unwrap();
     let p = dir.path().join("bad.zip");

@@ -14,7 +14,7 @@ expression: rendered
    ◆ new_pass.rs                                                                                                                               0 B     1m ago ?
    ◆ photo_from_phone.jpg                                                                                                                   4.0 MB 2025-02-22
    ◆ pipeline_cache.rs             ╭─ Commands ─────────────────────────────────────────────────────────────────────────────╮               3.3 KB   just now
-  ●◆ swapchain.rs                  │ ›                                                                                 1/99 │               9.8 KB    12m ago
+  ●◆ swapchain.rs                  │ ›                                                                                1/100 │               9.8 KB    12m ago
  ▌ ◆ vulkan_device.rs              │────────────────────────────────────────────────────────────────────────────────────────│              14.2 KB     3h ago M
    ◆ 日本語のメモ.txt              │▌ Move cursor down                                                              j, down │                220 B     2h ago
                                    │  Move cursor up                                                                  k, up │
@@ -106,8 +106,8 @@ expression: rendered
  12   3..5   fg=#a9a29a bg=reset
  12   5..35  fg=#d97757 bg=reset bold
  12  35..37  fg=#8f5c47 bg=reset
- 12  37..119 fg=#d97757 bg=reset bold
- 12 119..124 fg=#716b64 bg=reset
+ 12  37..118 fg=#d97757 bg=reset bold
+ 12 118..124 fg=#716b64 bg=reset
  12 124..140 fg=#8f5c47 bg=reset
  12 140..150 fg=#a9a29a bg=reset
  12 150..160 fg=#716b64 bg=reset

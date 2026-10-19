@@ -24,7 +24,7 @@ use std::time::Instant;
 use super::names::{keep_both_path, validate_name};
 use super::paths::{clear_readonly, is_cross_device, link_is_dir, path_key};
 use super::runner::{Flow, Runner, CHUNK};
-use super::types::{ConflictChoice, JobEvent, JobKind, Outcome, TransferItem};
+use super::types::{ConflictChoice, FileMeta, JobEvent, JobKind, Outcome, TransferItem};
 
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub(crate) enum Op {
@@ -256,7 +256,11 @@ impl Runner {
             if smeta.is_dir() && dmeta.is_dir() && !same {
                 return self.merge_dirs(op, src, &dst);
             }
-            match self.resolve_conflict(src, &dst, &smeta, &dmeta)? {
+            let (sm, dm) = (
+                FileMeta::from_metadata(&smeta),
+                FileMeta::from_metadata(&dmeta),
+            );
+            match self.resolve_conflict(src, &dst, sm, dm)? {
                 ConflictChoice::Skip | ConflictChoice::Cancel => {
                     self.account_skipped(op, src, &smeta);
                     return Ok(());

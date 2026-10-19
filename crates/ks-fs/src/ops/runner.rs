@@ -183,8 +183,8 @@ impl Runner {
         &mut self,
         src: &Path,
         dst: &Path,
-        src_meta: &std::fs::Metadata,
-        dst_meta: &std::fs::Metadata,
+        src_meta: FileMeta,
+        dst_meta: FileMeta,
     ) -> Flow<ConflictChoice> {
         if let Some(s) = self.sticky {
             return Ok(match s {
@@ -210,8 +210,8 @@ impl Runner {
             generation: self.generation,
             src: src.to_path_buf(),
             dst: dst.to_path_buf(),
-            src_meta: FileMeta::from_metadata(src_meta),
-            dst_meta: FileMeta::from_metadata(dst_meta),
+            src_meta,
+            dst_meta,
         }));
         loop {
             self.check()?;

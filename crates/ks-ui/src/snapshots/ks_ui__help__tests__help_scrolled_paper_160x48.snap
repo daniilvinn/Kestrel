@@ -15,8 +15,9 @@ expression: "draw(&s, &theme(name))"
    ◆ photo_from_phone.jpg│   a                       Create file or directory            Create a file; a trailing slash creates a d… │     4.0 MB 2025-02-22
    ◆ pipeline_cache.rs   │   d                       Move to Recycle Bin                 Move the entries to the Recycle Bin.         │     3.3 KB   just now
   ●◆ swapchain.rs        │   D                       Delete permanently                  Delete the entries for good after typed con… │     9.8 KB    12m ago
- ▌ ◆ vulkan_device.rs    │   u                       Undo last file operation            Undo the last rename, move, create or trash. │    14.2 KB     3h ago M
-   ◆ 日本語のメモ.txt    │   o                       Open with default app               Open with the default application.           │      220 B     2h ago
+ ▌ ◆ vulkan_device.rs    │   X                       Extract archive                     Extract ZIP and RAR archives here; several … │    14.2 KB     3h ago M
+   ◆ 日本語のメモ.txt    │   u                       Undo last file operation            Undo the last rename, move, create or trash. │      220 B     2h ago
+                         │   o                       Open with default app               Open with the default application.           │
                          │   O                       Open with...                        Choose which application opens the file.     │
                          │   e                       Open in editor                      Open in your editor.                         │
                          │   !                       Run shell command                   Run a shell command in this directory.       │
@@ -46,8 +47,7 @@ expression: "draw(&s, &theme(name))"
                          │                                                                                                            │
                          │ Claude Code                                                                                                │
                          │   V                       Select preview lines (visual line…  Select lines of the text preview (j/k exten… │
-                         │   c                       Open Claude                         Open Claude Code beside the explorer.        │
-─────────────────────────╰────────────────────────────────────────────────────────────────────────────────────────────── 41-81 / 117 ─╯─────────────────────────
+─────────────────────────╰────────────────────────────────────────────────────────────────────────────────────────────── 41-81 / 118 ─╯─────────────────────────
  ›                                                                                                                                           12/13 · 1 selected
    ‹/› filter  ‹j› scroll  ‹ctrl-d› page  ‹esc› close
 --- styles (row cols fg bg mods) ---
@@ -203,14 +203,14 @@ expression: "draw(&s, &theme(name))"
  17  53..89  fg=#6b645d bg=reset
  17  89..134 fg=#958e86 bg=reset
  17 134..160 fg=#c4623f bg=reset
- 18  25..160 fg=#c4623f bg=reset
- 19  25..27  fg=#c4623f bg=reset
- 19  27..134 fg=#c4623f bg=reset bold
- 19 134..160 fg=#c4623f bg=reset
- 20  25..29  fg=#c4623f bg=reset
- 20  29..53  fg=#2b2724 bg=reset bold
- 20  53..89  fg=#6b645d bg=reset
- 20  89..134 fg=#958e86 bg=reset
+ 18  25..29  fg=#c4623f bg=reset
+ 18  29..53  fg=#2b2724 bg=reset bold
+ 18  53..89  fg=#6b645d bg=reset
+ 18  89..134 fg=#958e86 bg=reset
+ 18 134..160 fg=#c4623f bg=reset
+ 19  25..160 fg=#c4623f bg=reset
+ 20  25..27  fg=#c4623f bg=reset
+ 20  27..134 fg=#c4623f bg=reset bold
  20 134..160 fg=#c4623f bg=reset
  21  25..29  fg=#c4623f bg=reset
  21  29..53  fg=#2b2724 bg=reset bold
@@ -257,14 +257,14 @@ expression: "draw(&s, &theme(name))"
  29  53..89  fg=#6b645d bg=reset
  29  89..134 fg=#958e86 bg=reset
  29 134..160 fg=#c4623f bg=reset
- 30  25..160 fg=#c4623f bg=reset
- 31  25..27  fg=#c4623f bg=reset
- 31  27..134 fg=#c4623f bg=reset bold
- 31 134..160 fg=#c4623f bg=reset
- 32  25..29  fg=#c4623f bg=reset
- 32  29..53  fg=#2b2724 bg=reset bold
- 32  53..89  fg=#6b645d bg=reset
- 32  89..134 fg=#958e86 bg=reset
+ 30  25..29  fg=#c4623f bg=reset
+ 30  29..53  fg=#2b2724 bg=reset bold
+ 30  53..89  fg=#6b645d bg=reset
+ 30  89..134 fg=#958e86 bg=reset
+ 30 134..160 fg=#c4623f bg=reset
+ 31  25..160 fg=#c4623f bg=reset
+ 32  25..27  fg=#c4623f bg=reset
+ 32  27..134 fg=#c4623f bg=reset bold
  32 134..160 fg=#c4623f bg=reset
  33  25..29  fg=#c4623f bg=reset
  33  29..53  fg=#2b2724 bg=reset bold
@@ -297,21 +297,21 @@ expression: "draw(&s, &theme(name))"
  38  89..134 fg=#958e86 bg=reset
  38 134..160 fg=#c4623f bg=reset
  39  25..29  fg=#c4623f bg=reset
- 39  29..134 fg=#958e86 bg=reset
+ 39  29..53  fg=#2b2724 bg=reset bold
+ 39  53..89  fg=#6b645d bg=reset
+ 39  89..134 fg=#958e86 bg=reset
  39 134..160 fg=#c4623f bg=reset
  40  25..29  fg=#c4623f bg=reset
- 40  29..53  fg=#2b2724 bg=reset bold
- 40  53..89  fg=#6b645d bg=reset
- 40  89..134 fg=#958e86 bg=reset
+ 40  29..134 fg=#958e86 bg=reset
  40 134..160 fg=#c4623f bg=reset
- 41  25..160 fg=#c4623f bg=reset
- 42  25..27  fg=#c4623f bg=reset
- 42  27..134 fg=#c4623f bg=reset bold
- 42 134..160 fg=#c4623f bg=reset
- 43  25..29  fg=#c4623f bg=reset
- 43  29..53  fg=#2b2724 bg=reset bold
- 43  53..89  fg=#6b645d bg=reset
- 43  89..134 fg=#958e86 bg=reset
+ 41  25..29  fg=#c4623f bg=reset
+ 41  29..53  fg=#2b2724 bg=reset bold
+ 41  53..89  fg=#6b645d bg=reset
+ 41  89..134 fg=#958e86 bg=reset
+ 41 134..160 fg=#c4623f bg=reset
+ 42  25..160 fg=#c4623f bg=reset
+ 43  25..27  fg=#c4623f bg=reset
+ 43  27..134 fg=#c4623f bg=reset bold
  43 134..160 fg=#c4623f bg=reset
  44  25..29  fg=#c4623f bg=reset
  44  29..53  fg=#2b2724 bg=reset bold

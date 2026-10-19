@@ -5,8 +5,8 @@
 //! 1. creating one [`JobManager`] with an [`EventSink`] that turns each [`JobEvent`] into a `Msg`;
 //! 2. building a [`JobSpec`] from the selection/yank register (`JobSpec::copy_into`,
 //!    `move_into`, `rename`, `Trash`, `DeletePermanent`, `Create` via [`parse_create_input`],
-//!    bulk rename via [`BulkRename`]) and calling [`JobManager::submit`] with the current
-//!    generation id;
+//!    `Extract` for ZIP/RAR archives, bulk rename via [`BulkRename`]) and calling
+//!    [`JobManager::submit`] with the current generation id;
 //! 3. answering [`JobEvent::ConflictPrompt`] with [`JobManager::resolve`];
 //! 4. calling [`JobManager::cancel`] / [`JobManager::undo`].
 //!
@@ -31,6 +31,7 @@
 //! every path on submit. Use [`paths::display`] (dunce) for showing paths.
 
 mod bulk;
+pub mod extract;
 mod manager;
 mod names;
 pub mod paths;
@@ -42,6 +43,7 @@ mod types;
 mod undo;
 
 pub use bulk::{BulkError, BulkRename, RenameChange, RenamePlan};
+pub use extract::ArchiveKind;
 pub use manager::{JobInfo, JobManager, JobState};
 pub use names::{
     confirmation_matches, confirmation_token, keep_both_name, keep_both_path, parse_create_input,

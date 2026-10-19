@@ -34,6 +34,8 @@ pub enum JobKind {
     BulkRename,
     /// Restore items from the Recycle Bin (the inverse of [`JobKind::Trash`], used by undo).
     Restore,
+    /// Extract ZIP / RAR archives.
+    Extract,
 }
 
 impl JobKind {
@@ -48,6 +50,7 @@ impl JobKind {
             JobKind::Rename => "Renaming",
             JobKind::BulkRename => "Bulk renaming",
             JobKind::Restore => "Restoring",
+            JobKind::Extract => "Extracting",
         }
     }
 }
@@ -126,6 +129,13 @@ pub enum JobSpec {
         /// Items to restore.
         items: Vec<TrashedItem>,
     },
+    /// Extract archives into a directory (see [`super::extract`] for the layout rules).
+    Extract {
+        /// ZIP or RAR archives.
+        archives: Vec<PathBuf>,
+        /// Directory to extract into.
+        dest_dir: PathBuf,
+    },
 }
 
 impl JobSpec {
@@ -140,6 +150,7 @@ impl JobSpec {
             JobSpec::Rename { .. } => JobKind::Rename,
             JobSpec::BulkRename { .. } => JobKind::BulkRename,
             JobSpec::Restore { .. } => JobKind::Restore,
+            JobSpec::Extract { .. } => JobKind::Extract,
         }
     }
 
@@ -176,6 +187,7 @@ impl JobSpec {
             JobSpec::Trash { paths } | JobSpec::DeletePermanent { paths } => paths.len(),
             JobSpec::Create { entries } => entries.len(),
             JobSpec::Restore { items } => items.len(),
+            JobSpec::Extract { archives, .. } => archives.len(),
         };
         let first = match self {
             JobSpec::Copy { items } | JobSpec::Move { items } => items.first().map(|i| &i.src),
@@ -184,6 +196,7 @@ impl JobSpec {
             JobSpec::Trash { paths } | JobSpec::DeletePermanent { paths } => paths.first(),
             JobSpec::Create { entries } => entries.first().map(|e| &e.path),
             JobSpec::Restore { items } => items.first().map(|i| &i.original),
+            JobSpec::Extract { archives, .. } => archives.first(),
         };
         let verb = self.kind().verb();
         match (n, first.and_then(|p| p.file_name())) {

@@ -56,9 +56,9 @@ holding `j` never stutters.
 </td>
 <td valign="top">
 
-**Change files safely.** Copy, move and trash run as background jobs with progress, speed and
-ETA. Undo with `u`, bulk rename in your editor, a conflict dialog, and permanent deletes only
-after you type `yes`.
+**Change files safely.** Copy, move, trash and archive extraction run as background jobs with
+progress, speed and ETA. Undo with `u`, bulk rename in your editor, a conflict dialog, and
+permanent deletes only after you type `yes`.
 
 </td>
 </tr>
@@ -161,7 +161,7 @@ scroll it. The preview renders:
 
 - text with line numbers and syntax highlighting (UTF-8 and UTF-16 detected)
 - Markdown
-- directory listings and zip archive contents
+- directory listings and ZIP / RAR archive contents
 - images (Sixel, Kitty or iTerm2 when the terminal speaks them, half blocks otherwise; see
   [Terminal graphics](#terminal-graphics))
 - binary files as a hex dump
@@ -208,7 +208,8 @@ On terminals at least 100 columns wide, both overlays preview the highlighted re
 |---|---|
 | `y` `x` `p` | copy, cut, paste into the current directory |
 | `d` / `D` | move to the Recycle Bin / delete permanently after typing `yes` |
-| `u` | undo the last rename, move, create or trash |
+| `u` | undo the last rename, move, create, trash or extraction |
+| `X` | extract ZIP / RAR archives next to themselves (several top-level items get their own folder) |
 | `r` / `R` | rename / bulk rename in your editor (with an `old -> new` preview to confirm) |
 | `a` | create a file; a trailing `/` creates a directory (nested paths work) |
 | `Y` | copy paths to the clipboard (absolute, relative or name) |

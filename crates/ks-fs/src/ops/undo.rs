@@ -8,7 +8,7 @@
 //! |---|---|
 //! | rename / bulk rename | rename back (one entry for the whole bulk rename) |
 //! | move | move back (parent directories are recreated) |
-//! | create | trash the topmost created entry |
+//! | create, extract | trash the topmost created entry |
 //! | trash | restore from the Recycle Bin (Windows / Linux only) |
 //! | copy | trash the copies |
 //!
@@ -115,7 +115,9 @@ impl UndoEntry {
             }
             JobKind::Move if !moves.is_empty() => Some(UndoEntry::Move { pairs: moves }),
             JobKind::Copy if !copies.is_empty() => Some(UndoEntry::Copy { pairs: copies }),
-            JobKind::Create if !created.is_empty() => Some(UndoEntry::Create { items: created }),
+            JobKind::Create | JobKind::Extract if !created.is_empty() => {
+                Some(UndoEntry::Create { items: created })
+            }
             JobKind::Trash if !trashed.is_empty() => Some(UndoEntry::Trash { items: trashed }),
             _ => None,
         }

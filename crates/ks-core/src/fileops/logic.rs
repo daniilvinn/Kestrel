@@ -198,6 +198,7 @@ fn file_action(state: &mut AppState, action: Action, effects: &mut Vec<Effect>) 
         Action::Paste => paste(state, effects),
         Action::Trash => trash(state, effects),
         Action::DeletePermanent => ask_delete(state, effects),
+        Action::Extract => extract(state, effects),
         Action::Undo => effects.push(Effect::Undo),
         Action::Rename => start_rename(state, effects),
         Action::BulkRename => start_bulk_rename(state, effects),
@@ -349,6 +350,42 @@ fn trash(state: &mut AppState, effects: &mut Vec<Effect>) {
         request: JobRequest::Trash { paths },
         keep_both: false,
     });
+}
+
+/// File extensions `X` treats as archives (the engine checks the actual format).
+pub const ARCHIVE_EXTENSIONS: &[&str] = &["zip", "rar", "cbz", "cbr"];
+
+fn is_archive(path: &Path) -> bool {
+    path.extension()
+        .and_then(|e| e.to_str())
+        .is_some_and(|e| ARCHIVE_EXTENSIONS.iter().any(|a| e.eq_ignore_ascii_case(a)))
+}
+
+/// Extracts the archives among the targets next to themselves, one job per directory.
+fn extract(state: &mut AppState, effects: &mut Vec<Effect>) {
+    let archives: Vec<PathBuf> = targets(state)
+        .into_iter()
+        .filter(|p| is_archive(p))
+        .collect();
+    if archives.is_empty() {
+        warn(state, effects, "Not a ZIP or RAR archive");
+        return;
+    }
+    clear_selection(state);
+    let mut groups: Vec<(PathBuf, Vec<PathBuf>)> = Vec::new();
+    for archive in archives {
+        let dir = archive.parent().map(Path::to_path_buf).unwrap_or_default();
+        match groups.iter_mut().find(|(d, _)| same_path(d, &dir)) {
+            Some((_, list)) => list.push(archive),
+            None => groups.push((dir, vec![archive])),
+        }
+    }
+    for (dest_dir, archives) in groups {
+        effects.push(Effect::SubmitJob {
+            request: JobRequest::Extract { archives, dest_dir },
+            keep_both: false,
+        });
+    }
 }
 
 /// The token to type for a permanent delete of `count` items: `yes`, or the count.
@@ -1202,7 +1239,9 @@ pub fn job_summary(done: &JobDone) -> (Level, String) {
     } else {
         String::new()
     };
-    let bytes = if matches!(done.kind, OpKind::Copy | OpKind::Move) && done.bytes_done > 0 {
+    let bytes = if matches!(done.kind, OpKind::Copy | OpKind::Move | OpKind::Extract)
+        && done.bytes_done > 0
+    {
         format!(" ({})", human(done.bytes_done))
     } else {
         String::new()

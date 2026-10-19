@@ -94,6 +94,7 @@ actions! {
     Create => "file.create", "Create file or directory";
     Trash => "file.trash", "Move to Recycle Bin";
     DeletePermanent => "file.delete", "Delete permanently";
+    Extract => "file.extract", "Extract archive";
     Undo => "file.undo", "Undo last file operation";
     Open => "open.default", "Open with default app";
     OpenWith => "open.with", "Open with...";

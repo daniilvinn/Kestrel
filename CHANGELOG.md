@@ -13,6 +13,11 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   Win+E open Kestrel in a PowerShell window, where `Q` leaves you in the directory you quit in);
   `ks --unset-default` gives the job back to File Explorer and restores the
   registry values it replaced.
+- `X` extracts ZIP and RAR archives (RAR 5 included) as a background job with progress,
+  conflict handling and undo. An archive with one top-level item is extracted in place; anything
+  else gets a folder named after the archive. Entries that would escape the destination, links
+  and password-protected entries are skipped and reported.
+- The preview lists the contents of RAR archives, not only ZIP.
 
 ## [0.1.0] - 2026-10-11
 

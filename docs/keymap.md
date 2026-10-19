@@ -92,6 +92,7 @@ the palette (`Reload config`).
 | `a` | Create file or directory | `file.create` | Create a file; a trailing slash creates a directory. |
 | `d` | Move to Recycle Bin | `file.trash` | Move the entries to the Recycle Bin. |
 | `D` | Delete permanently | `file.delete` | Delete the entries for good after typed confirmation. |
+| `X` | Extract archive | `file.extract` | Extract ZIP and RAR archives here; several top-level items get their own folder. |
 | `u` | Undo last file operation | `file.undo` | Undo the last rename, move, create or trash. |
 | `o` | Open with default app | `open.default` | Open with the default application. |
 | `O` | Open with... | `open.with` | Choose which application opens the file. |

@@ -262,6 +262,11 @@ const COMMANDS: &[(Action, Category, &str)] = &[
         "Delete the entries for good after typed confirmation.",
     ),
     (
+        Action::Extract,
+        C::Files,
+        "Extract ZIP and RAR archives here; several top-level items get their own folder.",
+    ),
+    (
         Action::Undo,
         C::Files,
         "Undo the last rename, move, create or trash.",

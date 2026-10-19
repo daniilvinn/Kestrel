@@ -255,6 +255,42 @@ fn trash_without_marks_uses_the_cursor_entry() {
 }
 
 #[test]
+fn extract_takes_the_marked_archives_and_skips_other_files() {
+    let mut s = state();
+    let rows = s.viewport_height();
+    s.view.push_chunk(
+        vec![Entry::file("pics.zip", 5), Entry::file("movie.RAR", 9)],
+        rows,
+    );
+    cursor_to(&mut s, "a.txt");
+    keys(&mut s, "space");
+    // Sorted by name: movie.RAR, then pics.zip.
+    cursor_to(&mut s, "movie.RAR");
+    keys(&mut s, "space space");
+    let effects = keys(&mut s, "X");
+    assert_eq!(
+        submits(&effects),
+        vec![(
+            &JobRequest::Extract {
+                archives: vec![p("movie.RAR"), p("pics.zip")],
+                dest_dir: p(""),
+            },
+            false
+        )]
+    );
+    assert_eq!(s.view.marks_count(), 0);
+}
+
+#[test]
+fn extract_on_a_non_archive_explains_itself() {
+    let mut s = state();
+    cursor_to(&mut s, "c.rs");
+    let effects = keys(&mut s, "X");
+    assert!(submits(&effects).is_empty());
+    assert_eq!(status(&s), "Not a ZIP or RAR archive");
+}
+
+#[test]
 fn permanent_delete_needs_the_typed_word() {
     let mut s = state();
     cursor_to(&mut s, "a.txt");
