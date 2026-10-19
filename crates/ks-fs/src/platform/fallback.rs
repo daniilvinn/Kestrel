@@ -31,6 +31,11 @@ pub fn file_owner(_path: &Path) -> Option<String> {
     None
 }
 
+/// Terminals offer no portable way to read the window title.
+pub fn console_title() -> Option<String> {
+    None
+}
+
 /// Dates are shown in UTC on non-Windows hosts.
 pub fn utc_offset_secs() -> i32 {
     0

@@ -5,12 +5,13 @@
 use std::io::{self, Stdout};
 use std::panic;
 use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::{Mutex, OnceLock};
 
 use crossterm::cursor::Show;
 use crossterm::event::{DisableBracketedPaste, EnableBracketedPaste};
 use crossterm::execute;
 use crossterm::terminal::{
-    disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen,
+    disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen, SetTitle,
 };
 use ratatui::backend::CrosstermBackend;
 use ratatui::Terminal;
@@ -24,6 +25,47 @@ static ACTIVE: AtomicBool = AtomicBool::new(false);
 /// True while bracketed paste is enabled (only while the Claude pane has focus, so other
 /// text inputs keep receiving pasted text as ordinary key events).
 static BRACKETED_PASTE: AtomicBool = AtomicBool::new(false);
+
+/// The window title before Kestrel changed it (`None` when it cannot be read).
+static ORIGINAL_TITLE: OnceLock<Option<String>> = OnceLock::new();
+
+/// The title Kestrel last set; re-sent after a foreground program had the terminal.
+static CURRENT_TITLE: Mutex<String> = Mutex::new(String::new());
+
+/// Sets the terminal window (tab) title when it changed. A no-op outside TUI mode.
+pub fn set_title(title: &str) {
+    if !ACTIVE.load(Ordering::SeqCst) {
+        return;
+    }
+    let mut current = CURRENT_TITLE.lock().unwrap_or_else(|e| e.into_inner());
+    if *current == title {
+        return;
+    }
+    ORIGINAL_TITLE.get_or_init(ks_fs::console_title);
+    if execute!(io::stdout(), SetTitle(title)).is_ok() {
+        title.clone_into(&mut current);
+    }
+}
+
+/// Re-sends the title Kestrel set (a foreground program may have replaced it).
+fn resend_title() {
+    let current = CURRENT_TITLE.lock().unwrap_or_else(|e| e.into_inner());
+    if !current.is_empty() {
+        let _ = execute!(io::stdout(), SetTitle(current.as_str()));
+    }
+}
+
+/// Puts the shell's title back, if Kestrel changed it and knows what it was.
+fn restore_title() {
+    let mut current = CURRENT_TITLE.lock().unwrap_or_else(|e| e.into_inner());
+    if current.is_empty() {
+        return;
+    }
+    current.clear();
+    if let Some(Some(original)) = ORIGINAL_TITLE.get() {
+        let _ = execute!(io::stdout(), SetTitle(original.as_str()));
+    }
+}
 
 /// Turns bracketed paste on or off. A no-op outside TUI mode (tests, `ks hook`).
 ///
@@ -85,6 +127,7 @@ pub fn restore() {
             let _ = execute!(io::stdout(), DisableBracketedPaste);
         }
         let _ = execute!(io::stdout(), LeaveAlternateScreen, Show);
+        restore_title();
         let _ = disable_raw_mode();
     }
 }
@@ -99,7 +142,9 @@ pub fn suspend() {
 /// Takes the terminal back after [`suspend`]. The caller must redraw everything.
 pub fn resume() -> io::Result<()> {
     enable_raw_mode()?;
-    execute!(io::stdout(), EnterAlternateScreen)
+    execute!(io::stdout(), EnterAlternateScreen)?;
+    resend_title();
+    Ok(())
 }
 
 /// Installs a panic hook that first runs `cleanup` (restoring the terminal), then logs the

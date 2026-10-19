@@ -22,6 +22,7 @@ use windows::Win32::Storage::FileSystem::{
     GetVolumeInformationW, COPYPROGRESSROUTINE_PROGRESS, COPY_FILE_ALLOW_DECRYPTED_DESTINATION,
     COPY_FILE_FAIL_IF_EXISTS, WIN32_FIND_DATAW,
 };
+use windows::Win32::System::Console::GetConsoleTitleW;
 use windows::Win32::System::Diagnostics::Debug::{SetThreadErrorMode, SEM_FAILCRITICALERRORS};
 use windows::Win32::System::Threading::{
     GetExitCodeProcess, OpenProcess, PROCESS_QUERY_LIMITED_INFORMATION,
@@ -231,6 +232,14 @@ pub fn utc_offset_secs() -> i32 {
             tz.StandardBias
         };
     -bias * 60
+}
+
+/// The console window's current title (what the shell set), so it can be put back on exit.
+pub fn console_title() -> Option<String> {
+    let mut buf = vec![0u16; 1024];
+    // SAFETY: `buf` is a valid, writable buffer of the given length.
+    let len = unsafe { GetConsoleTitleW(&mut buf) } as usize;
+    (len > 0).then(|| String::from_utf16_lossy(&buf[..len.min(buf.len())]))
 }
 
 /// Whether a process with this id is currently running. Conservative: when the process cannot

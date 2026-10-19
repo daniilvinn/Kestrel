@@ -259,6 +259,7 @@ where
             }
             state.dirty = false;
             last_draw = Some(Instant::now());
+            crate::terminal::set_title(&ks_ui::render::window_title(state));
             if !first_frame_done {
                 first_frame_done = true;
                 tracing::info!(
